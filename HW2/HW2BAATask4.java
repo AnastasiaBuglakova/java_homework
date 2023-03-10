@@ -1,5 +1,8 @@
 // в калькулятор из предыдущего ДЗ добавить логирование
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.logging.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -77,11 +80,15 @@ public class HW2BAATask4 {
         try{
             Logger logger = Logger.getLogger(HW2BAATask4.class.getName());
             logger.setLevel(Level.INFO);
+
+
             FileHandler fh = new FileHandler("HW2/logCalc.txt", true);
             logger.addHandler(fh);
             SimpleFormatter sFormat = new SimpleFormatter();
             fh.setFormatter(sFormat);
             logger.setUseParentHandlers(false);
+            
+            
             if (info) logger.info(data);
             else logger.warning(data);
         } catch (Exception e) {
