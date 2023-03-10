@@ -6,8 +6,8 @@
 //Студент Иванов получил 5 по предмету Математика.
 //Студент Петрова получил 4 по предмету Информатика.
 //Студент Краснов получил 5 по предмету Физика.
-package Homework.HW2;
-import java.util.Arrays;
+// package Homework.HW2;
+
 public class HW2BAATask3 {
     
     public static String parseJson(String data) {

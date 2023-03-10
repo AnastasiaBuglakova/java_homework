@@ -4,7 +4,7 @@
 //попадать в запрос.
 //Параметры для фильтрации: {"name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"}
 // select * from students where name = 'Ivanov' and country = 'Russia' and city = 'Moscow'
-package Homework.HW2;
+
 
 import java.util.Arrays;
 
@@ -13,17 +13,18 @@ public class HW2BAATask1 {
         String jsonData = "\"name\":\"Ivanov\", \"country\":\"Russia\", \"city\":\"Moscow\", \"age\":\"null\"";
         System.out.println(jsonData);
         StringBuilder sb = new StringBuilder();
-        String[] parts = jsonData.replace("\"", "").replace(":", ",").trim().split(",");
+        String[] parts = jsonData.replace("\"", "").replace(":", ",")
+                    .split(",");
         System.out.println(Arrays.toString(parts));
         sb.append("select * from students where ");
         for (int index = 0; index < parts.length; index+=2) {
-            sb.append(parts[index]).append(" = \'").append(parts[index+1]).append("\'");
-            if (index < parts.length-2) sb.append(" and ");
+            if (parts[index+1].equals("null") == false) {
+                System.out.println("*"+parts[index+1]+"*"+"null"+"*");
+                sb.append(parts[index].trim()).append(" = \'").append(parts[index+1].trim()).append("\'")
+                .append(" and ");
+            }
         }
+        sb = sb.delete(sb.length()-5, sb.length()-1);
         System.out.println(sb);
-
-        
-
-        
     }
 }
